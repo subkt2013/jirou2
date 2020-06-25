@@ -14,7 +14,10 @@ class CreateBlogpostsTable extends Migration
     public function up()
     {
         Schema::create('blogposts', function (Blueprint $table) {
-            $table->increments('id');
+            $table->bigInteger('id',true)->unsigned();
+            $table->string('store_name');
+            $table->bigInteger('wait_people')->unsigned();
+            $table->text('introduction', 65535)->nullable()->comment('[店舗紹介]');
             $table->timestamps();
         });
     }

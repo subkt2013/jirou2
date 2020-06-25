@@ -1,7 +1,17 @@
-@extends('layout')
+@extends('layouts.app')
 
 @section('content')
-<h1>Welcome to Laravel!</h1>
 
-<p>This is the content of the main page!</p>
+<div class="container">
+サイトの説明
+    
+    <p><a href="{{ route('posts.index') }}">Blog Posts</a></p>
+
+    @if(session()->has('status'))
+        <p style="color: green">
+            {{ session()->get('status') }}
+        </p>
+    @endif
+</div><!-- /#accordion -->
+
 @endsection

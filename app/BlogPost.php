@@ -8,5 +8,5 @@ class BlogPost extends Model
 {
     // protected $table = 'blogposts';
 
-    protected $fillable = ['title', 'content'];
+    protected $fillable = ['title', 'content','store_name','wait_people','introduction',''];
 }

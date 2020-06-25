@@ -1,21 +1,20 @@
-@extends('layout')
+@extends('layouts.app')
 
 @section('content')
+<div class="container">
     <form method="POST" 
           action="{{ route('posts.update', ['post' => $post->id]) }}">
         @csrf
         @method('PUT')
 
+
         <p>
-            <label>Title</label>
-            <input type="text" name="title" 
-                value="{{ old('title', $post->title) }}"/>
+            <label>現在の待ち人数</label>
+            <input type="number" name="wait_people" value="{{ old('wait_people',$post->wait_people) }}"/>
         </p>
-        
         <p>
-            <label>Content</label>
-            <input type="text" name="content" 
-                value="{{ old('content', $post->content) }}"/>
+            <label>更新日時</label>
+            <input type="hidden" name="updated_at" value="{{ old('wait_people',$post->updated_at) }}"/>
         </p>
 
         @if($errors->any())
@@ -28,6 +27,7 @@
             </div>
         @endif
 
-        <button type="submit">Update!</button>
+        <button type="submit">更新</button>
     </form>
+</div>
 @endsection
