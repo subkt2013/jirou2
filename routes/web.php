@@ -15,3 +15,5 @@ Route::get('/', 'HomeController@home')->name('home');
 //Route::get('/contact', 'HomeController@contact')->name('contact');
 Route::resource('/posts', 'PostController')
     ->except(['destroy']);
+
+Route::resource('/admin','AdminController');
