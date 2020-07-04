@@ -3,7 +3,7 @@
 @section('content')
 <div class="container">
     <div class="card" style="width: 18rem;">
-        <img src="..." class="card-img-top" alt="画像">
+        <img src="/storage/img/{{ $post->cover_image}}" class="card-img-top" alt="画像">
         <div class="card-body">
             <h5 class="card-title">店名: {{$post->store_name}}</h5>
             <p class="card-text">

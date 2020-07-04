@@ -4,6 +4,7 @@
     
 <div class="container">
     <h2>店舗一覧</h2>
+    <h3>  <a href=" {{route('home')}} ">サービス画面へ</a>  </h3>
     <table class="table table-striped">
         <tr>
             <th>id</th>
