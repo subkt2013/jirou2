@@ -16,4 +16,7 @@ Route::get('/', 'HomeController@home')->name('home');
 Route::resource('/posts', 'PostController')
     ->except(['destroy']);
 
-Route::resource('/admin','AdminController');
+Route::group(['middleware' => 'iplimit'], function () {
+    Route::resource('/admin','AdminController');
+});
+//Route::resource('/admin','AdminController');
