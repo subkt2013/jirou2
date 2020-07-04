@@ -12,7 +12,7 @@
         </div>
         <div class="form-group">
             <label for="wait_people">待ち人数</label>
-            <input type="number" class="form-control" name="wait_people" id="wait_people" placeholder="待ち人数">
+            <input type="number" class="form-control" name="wait_people" id="wait_people" placeholder="待ち人数" min="0">
         </div>
         <div class="form-group">
             <label for="introduction">紹介</label>

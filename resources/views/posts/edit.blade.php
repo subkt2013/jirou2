@@ -10,7 +10,7 @@
 
         <p>
             <label>現在の待ち人数</label>
-            <input type="number" name="wait_people" value="{{ old('wait_people',$post->wait_people) }}"/>
+            <input type="number" name="wait_people" value="{{ old('wait_people',$post->wait_people) }}" min="0" />
         </p>
         <p>
             <label>更新日時</label>
