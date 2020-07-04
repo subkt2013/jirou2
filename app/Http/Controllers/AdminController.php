@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\BlogPost;
 
 class AdminController extends Controller
 {
@@ -13,7 +14,7 @@ class AdminController extends Controller
      */
     public function index()
     {
-        //
+        return view('admin.index', ['posts' => BlogPost::all()]);
     }
 
     /**
@@ -23,7 +24,7 @@ class AdminController extends Controller
      */
     public function create()
     {
-        //
+        return view('admin.create');
     }
 
     /**
@@ -34,7 +35,43 @@ class AdminController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $this->validate($request, [
+            'store_name' => 'required',
+            'wait_people' => 'required',
+            'introduction' => 'required',
+            'title' => 'required',
+            'content' => 'required',
+            'cover_image' => 'required|image',
+        ]);
+
+        //拡張子付きファイル名
+        $filenameWithExtension = $request->file('cover_image')->getClientOriginalName();
+
+        //ファイル名
+        $filename = pathinfo($filenameWithExtension, PATHINFO_FILENAME);
+
+        //拡張子
+        $extension = $request->file('cover_image')->getClientOriginalExtension();
+
+        //保存用ファイル名　=　ファイル名_時間.拡張子
+        $filenameToStore = $filename . '_' . time() . '.' . $extension;
+
+        //ファイルの格納場所とファイル名の指定
+        $request->file('cover_image')->storeAs('public/img', $filenameToStore);
+
+        $BlogPost = new BlogPost();
+
+        $BlogPost->store_name = $request->input('store_name');
+        $BlogPost->wait_people = $request->input('wait_people');
+        $BlogPost->introduction = $request->input('introduction');
+        $BlogPost->title = $request->input('title');
+        $BlogPost->content = $request->input('content');;
+        $BlogPost->cover_image = $filenameToStore;
+
+        $BlogPost->save();
+
+        return redirect('/admin');
+
     }
 
     /**
