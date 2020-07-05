@@ -93,7 +93,8 @@ class AdminController extends Controller
      */
     public function edit($id)
     {
-        //
+        $post = BlogPost::findOrFail($id);
+        return view('admin.edit', ['post' => $post]);
     }
 
     /**
@@ -105,7 +106,46 @@ class AdminController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+
+        $this->validate($request, [
+            'store_name' => 'required',
+            'wait_people' => 'required',
+            'introduction' => 'required',
+            'title' => 'required',
+            'content' => 'required',
+            'cover_image' => 'required|image',
+        ]);
+
+        //拡張子付きファイル名
+        $filenameWithExtension = $request->file('cover_image')->getClientOriginalName();
+
+        //ファイル名
+        $filename = pathinfo($filenameWithExtension, PATHINFO_FILENAME);
+
+        //拡張子
+        $extension = $request->file('cover_image')->getClientOriginalExtension();
+
+        //保存用ファイル名　=　ファイル名_時間.拡張子
+        $filenameToStore = $filename . '_' . time() . '.' . $extension;
+
+        //ファイルの格納場所とファイル名の指定
+        $request->file('cover_image')->storeAs('public/img', $filenameToStore);
+
+
+        $post = BlogPost::findOrFail($id);
+
+        $post->store_name = $request->input('store_name');
+        $post->wait_people = $request->input('wait_people');
+        $post->introduction = $request->input('introduction');
+        $post->title = $request->input('title');
+        $post->content = $request->input('content');;
+        $post->cover_image = $filenameToStore;
+
+        $post->save();
+
+        return redirect('/admin');
+
+        
     }
 
     /**
