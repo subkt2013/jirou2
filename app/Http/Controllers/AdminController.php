@@ -113,8 +113,11 @@ class AdminController extends Controller
             'introduction' => 'required',
             'title' => 'required',
             'content' => 'required',
-            'cover_image' => 'required|image',
+            //'cover_image' => 'required|image',
         ]);
+
+
+        if (isset($request -> cover_image)) {
 
         //拡張子付きファイル名
         $filenameWithExtension = $request->file('cover_image')->getClientOriginalName();
@@ -131,6 +134,7 @@ class AdminController extends Controller
         //ファイルの格納場所とファイル名の指定
         $request->file('cover_image')->storeAs('public/img', $filenameToStore);
 
+        }
 
         $post = BlogPost::findOrFail($id);
 
@@ -139,7 +143,10 @@ class AdminController extends Controller
         $post->introduction = $request->input('introduction');
         $post->title = $request->input('title');
         $post->content = $request->input('content');;
+
+        if (isset($request -> cover_image)) {
         $post->cover_image = $filenameToStore;
+        }
 
         $post->save();
 
