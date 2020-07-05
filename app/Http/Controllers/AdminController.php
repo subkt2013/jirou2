@@ -163,6 +163,8 @@ class AdminController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $post = BlogPost::find($id)->delete();
+
+        return redirect('/admin');
     }
 }

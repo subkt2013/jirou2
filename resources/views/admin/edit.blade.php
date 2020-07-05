@@ -36,7 +36,14 @@
         </button>
         <a class="btn btn-primary" href="{{route('admin.index')}}" role="button">戻る</a>
     </form>
-    
+    <br>
+
+    <form method="post" action="/admin/{{ $post->id }}" >
+    @csrf
+    @method('DELETE')
+    <button class="btn btn-primary" type="submit" >削除</button>
+    </form>
+
 
 </div><!-- /#accordion -->
 
