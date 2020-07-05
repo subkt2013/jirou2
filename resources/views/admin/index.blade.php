@@ -14,6 +14,7 @@
             <th>タイトル</th>
             <th>コンテンツ</th>
             <th>ファイル</th>
+            <th>編集</th>
         </tr>
         @foreach($posts as $post)
         <tr>
@@ -24,6 +25,7 @@
             <td>{{ $post->title }}</td>
             <td>{{ $post->content }}</td>
             <td>{{ $post->cover_image }}</td>
+            <td><a class="btn btn-primary" href="{{route('admin.edit',['id'=> $post->id ]) }}" role="button">編集</td>
         </tr>
         @endforeach
     </table>
