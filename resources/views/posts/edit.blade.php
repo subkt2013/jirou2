@@ -14,7 +14,7 @@
         </p>
         <p>
             <label>更新日時</label>
-            <input type="hidden" name="updated_at" value="{{ old('wait_people',$post->updated_at) }}"/>
+            <input type="hidden" name="updated_at" value="{{ old('updated_at',$post->updated_at) }}"/>
         </p>
 
         @if($errors->any())

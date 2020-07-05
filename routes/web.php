@@ -19,4 +19,3 @@ Route::resource('/posts', 'PostController')
 Route::group(['middleware' => 'iplimit'], function () {
     Route::resource('/admin','AdminController');
 });
-//Route::resource('/admin','AdminController');
