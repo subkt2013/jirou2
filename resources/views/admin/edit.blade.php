@@ -38,7 +38,7 @@
     </form>
     <br>
 
-    <form method="post" action="/admin/{{ $post->id }}" >
+    <form method="post" action="{{route('admin.destroy',['post' => $post->id]) }}" >
     @csrf
     @method('DELETE')
     <button class="btn btn-primary" type="submit" >削除</button>
