@@ -7,7 +7,6 @@
         <div class="card-body">
             <h5 class="card-title">{{$post->store_name}}</h5>
             <p class="card-text">
-            {!! nl2br(e($post->introduction)) !!}<br>
             行列: {{$post->wait_people}} 人待ち <br>
             更新日時: {{$post->updated_at}} <br>
             </p>
