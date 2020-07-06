@@ -16,7 +16,7 @@
         </div>
         <div class="form-group">
             <label for="introduction">紹介</label>
-            <input type="text" class="form-control" name="introduction" id="introduction">
+            <textarea  class="form-control" name="introduction" id="introduction"　cols="40" rows="5"></textarea>
         </div>
         <div class="form-group">
             <label for="title">タイトル</label>
