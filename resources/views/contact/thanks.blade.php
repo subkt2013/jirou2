@@ -1,5 +1,8 @@
 @extends('layouts.app')
 
+
 @section('content')
-<h1>{{ __('送信完了') }}</h1>
+<div class="container">
+<h2>送信しました！</h2>
+</div>
 @endsection
