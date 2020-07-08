@@ -13,6 +13,7 @@
 
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="ラーメン二郎の並びが確認できるサイトです。">
     
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">    
@@ -20,7 +21,7 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>{{ config('app.name', '二郎並び確認') }}</title>
+    <title>{{ config('app.name', 'ラーメン二郎の並びが分かるサイト') }}</title>
 
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}" defer></script>
@@ -42,10 +43,8 @@
         <div class="row">
             <div class="col-sm-12">
                 <div class="card">
-                    <h3 class="card-title">二郎並び確認</h5>
-                    <div class="card-tesx">
-                        <h5 class="card-title">~二郎の並びが確認できるサイトです~</h5>
-                    </div>
+                    <h1 class="card-title">ラーメン二郎の並びが分かるサイト</h1>
+                    <p>ラーメン二郎の待ち人数が分かるサイトです。<br> 二郎ファンの皆さんの投稿で成り立っています</p>
                 </div>
             </div>
         </div>
