@@ -36,3 +36,5 @@ Route::get('welcome/{name?}', function($name = "ゲスト") {
 
     return "Welcome メッセージを $name に送りました";
 });
+
+Route::view('/temp', 'temp.index');
