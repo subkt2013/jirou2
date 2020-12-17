@@ -1,13 +1,29 @@
+<!--
+
+=========================================================
+* Now UI Kit - v1.3.0
+=========================================================
+
+* Product Page: https://www.creative-tim.com/product/now-ui-kit
+* Copyright 2019 Creative Tim (http://www.creative-tim.com)
+* Licensed under MIT (https://github.com/creativetimofficial/now-ui-kit/blob/master/LICENSE.md)
+
+* Designed by www.invisionapp.com Coded by www.creative-tim.com
+
+=========================================================
+
+* The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
+
+-->
 <!doctype html>
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
-<head>
+<html lang="ja">
+  <head>
     <!-- Global site tag (gtag.js) - Google Analytics -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=UA-142542818-2"></script>
     <script>
     window.dataLayer = window.dataLayer || [];
     function gtag(){dataLayer.push(arguments);}
     gtag('js', new Date());
-
     gtag('config', 'UA-142542818-2');
     </script>
 
@@ -32,33 +48,50 @@
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
-</head>
-<body>
-    <div id="app">
+  </head>
+
+  <body>
+  <div class="container">  
     <header>
-    <div class="container">
-        <nav class="navbar navbar-expand-lg navbar-light bg-light"> 
-            <a class="navbar-brand" href="/">TOP</a> <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
-        </nav>
-        <div class="row">
-            <div class="col-sm-12">
-                <div class="card">
-                    <h1 class="card-title">ラーメン二郎の並びが分かるサイト</h1>
-                    <p>ラーメン二郎の待ち人数が分かるサイトです。<br> 二郎ファンの皆さんの投稿で成り立っています</p>
+        <ul class="nav">
+            <li class="nav-item">
+                <a class="nav-link active" href="/">TOP</a>
+            </li>
+        </ul>
+            <div class="row">
+                <div class="col-sm-12">
+                    <div class="card">
+                            <h1 class="card-title">ラーメン二郎の並びが分かるサイト</h1>
+                            <p>ラーメン二郎の待ち人数が分かるサイトです。<br> 二郎ファンの皆さんの投稿で成り立っています</p>
+                        </div>
+                    </div>
                 </div>
             </div>
-        </div>
-    </div>
     </header>
 
         <main class="py-4">
             @yield('content')
         </main>
-    </div>
-    <!-- Optional JavaScript -->
-    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
-</body>
+    </div>  
+
+    <!--   Core JS Files   -->
+    <script src="../assets/js/core/jquery.min.js" type="text/javascript"></script>
+    <script src="../assets/js/core/popper.min.js" type="text/javascript"></script>
+    <script src="../assets/js/core/bootstrap.min.js" type="text/javascript"></script>
+
+    <!--  Plugin for Switches, full documentation here: http://www.jque.re/plugins/version3/bootstrap.switch/ -->
+    <script src="../assets/js/plugins/bootstrap-switch.js"></script>
+
+    <!--  Plugin for the Sliders, full documentation here: http://refreshless.com/nouislider/ -->
+    <script src="../assets/js/plugins/nouislider.min.js" type="text/javascript"></script>
+
+    <!--  Plugin for the DatePicker, full documentation here: https://github.com/uxsolutions/bootstrap-datepicker --><script src="../assets/js/plugins/bootstrap-datepicker.js" type="text/javascript"></script>
+
+    <!--  Google Maps Plugin    -->
+    <script  src="https://maps.googleapis.com/maps/api/js?key=YOUR_KEY_HERE"></script>
+
+
+    <!-- Control Center for Now Ui Kit: parallax effects, scripts for the example pages etc -->
+    <script src="../assets/js/now-ui-kit.js?v=1.2.0" type="text/javascript"></script>
+  </body>
 </html>
