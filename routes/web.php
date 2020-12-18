@@ -17,17 +17,15 @@ Route::get('/', 'HomeController@home')->name('home');
 Route::resource('/posts', 'PostController')
     ->except(['destroy']);
 
-Route::group(['middleware' => 'iplimit'], function () {
-    Route::resource('/admin','AdminController');
+Route::resource('/admin','AdminController',['except' => ['show']])->middleware('iplimit');
+
+Route::group(['prefix' => 'contact', 'as' => 'contact.'],function(){
+    Route::get('/', 'ContactController@index')->name('index');
+    //確認ページ
+    Route::post('/confirm', 'ContactController@confirm')->name('confirm');
+    //送信完了ページ
+    Route::post('/thanks', 'ContactController@send')->name('send');
 });
-
-Route::get('/contact', 'ContactController@index')->name('contact.index');
-
-//確認ページ
-Route::post('/contact/confirm', 'ContactController@confirm')->name('contact.confirm');
-
-//送信完了ページ
-Route::post('/contact/thanks', 'ContactController@send')->name('contact.send');
 
 Route::get('welcome/{name?}', function($name = "ゲスト") {
     Mail::send('mails.welcome', ['name' => $name], function($message) {
