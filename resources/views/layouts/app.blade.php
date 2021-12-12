@@ -37,7 +37,7 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>{{ config('app.name', 'ラーメン二郎の並びが分かるサイト') }}</title>
+    <title>音楽</title>
 
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}" defer></script>
